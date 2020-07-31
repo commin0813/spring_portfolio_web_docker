@@ -1,0 +1,7 @@
+[mysqld]
+init_connect="SET collaction_connection = euckr_korean_ci"
+init_connect="SET NAMES euckr"
+character-set-server = euckr
+collation-server = euckr_korean_ci
+#character-set-client = utf8
+#collation-client = euckr_korean_ci

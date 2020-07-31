@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  db:
+    build:
+      context: ./context/db
+      dockerfile: ./Dockerfile
+    ports:
+      - "13308:3306"
+    volumes:
+      - ./workspace/data/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=khm0813@
+    restart: always
+  spring:
+    build:
+      context: ./context/portfolio_web
+      dockerfile: ./Dockerfile
+    network_mode: host
+    ports:
+      - "8800:8800"
+    command:
+        - /usr/local/web/run.sh
+    restart: always
